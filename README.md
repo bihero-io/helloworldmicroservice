@@ -1,6 +1,6 @@
 # 'Hello World' microservice
 
-Its purpose is to return 'Hello World' by http api (aggregated by hellomicroservice and worldmicroservice):
+Its purpose is to return 'Hello World' by http api (aggregated by [hellomicroservice](https://github.com/bihero-io/hello-microservice) and [worldmicroservice](https://github.com/bihero-io/worldmicroservice)):
 ```bash
 mvn clean package
 java -jar target/helloworld-microservice-fat.jar
@@ -8,7 +8,7 @@ java -jar target/helloworld-microservice-fat.jar
 curl http://localhost:8080/ # Hello World
 ```
 
-## How to configure connections to hello and world microservices
+## How to configure connections to [hello](https://github.com/bihero-io/hello-microservice) and [world](https://github.com/bihero-io/worldmicroservice) microservices
 Edit src/conf/config.json
 ```json
 {
