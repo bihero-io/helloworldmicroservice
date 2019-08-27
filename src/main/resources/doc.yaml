@@ -1,0 +1,25 @@
+openapi: 3.0.1
+info:
+  title: Hello World ;)
+  description: "Hello World microservice. Aggregate 'Hello World' by hellomicroservice and worldmicroservice"
+  version: 1.0.0
+servers:
+  - url: https://demo1.bihero.io/api/helloworld
+tags:
+  - name: helloworld
+    description: Everything about 'Hello World'
+paths:
+  /:
+    x-vertx-event-bus:
+      address: service.helloworld
+      timeout: 1000
+    get:
+      tags:
+        - helloworld
+      summary: Aggregate 'Hello World'
+      operationId: getHelloWorld
+      responses:
+        200:
+          description: OK
+          content: {}
+components: {}

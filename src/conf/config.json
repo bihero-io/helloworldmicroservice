@@ -1,0 +1,14 @@
+{
+  "type": "file",
+  "format": "json",
+  "scanPeriod": 5000,
+  "config": {
+    "path": "/home/slava/JavaProjects/hello-world-to-cloud/helloworldmicroservice/src/conf/config.json"
+  },
+  "serverPort": 8083,
+  "serverHost": "0.0.0.0",
+  "hello-service-host": "localhost",
+  "hello-service-port": 8081,
+  "world-service-host": "localhost",
+  "world-service-port": 8082
+}
