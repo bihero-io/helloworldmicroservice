@@ -23,9 +23,17 @@ public class DefaultHelloWorldService implements HelloWorldService {
 
     @Override
     public void getHelloWorld(OperationRequest context, Handler<AsyncResult<OperationResponse>> resultHandler) {
-        getHelloWord().compose(v -> getHelloWorld(v)).setHandler(v ->
+        getHelloWord().compose(this::getHelloWorld).setHandler(v ->
                 resultHandler.handle(
                         Future.succeededFuture(OperationResponse.completedWithPlainText(Buffer.buffer(v.result())))
+                ));
+    }
+
+    @Override
+    public void getDoc(OperationRequest context, Handler<AsyncResult<OperationResponse>> resultHandler) {
+        vertx.fileSystem().readFile("doc.yaml", buffResult ->
+                resultHandler.handle(Future.succeededFuture(
+                        OperationResponse.completedWithPlainText(buffResult.result()))
                 ));
     }
 

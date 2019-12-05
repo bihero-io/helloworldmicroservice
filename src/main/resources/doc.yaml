@@ -22,4 +22,16 @@ paths:
         200:
           description: OK
           content: {}
+  /doc:
+    x-vertx-event-bus:
+      address: service.helloworld
+      timeout: 1000c
+    get:
+      tags:
+        - world
+      summary: Get 'Hello World' microservice documentation
+      operationId: getDoc
+      responses:
+        200:
+          description: OK
 components: {}

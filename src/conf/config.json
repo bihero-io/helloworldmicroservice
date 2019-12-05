@@ -7,8 +7,8 @@
   },
   "serverPort": 8083,
   "serverHost": "0.0.0.0",
-  "hello-service-host": "localhost",
+  "hello-service-host": "172.17.0.3",
   "hello-service-port": 8081,
-  "world-service-host": "localhost",
+  "world-service-host": "172.17.0.2",
   "world-service-port": 8082
 }

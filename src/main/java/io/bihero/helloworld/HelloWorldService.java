@@ -17,4 +17,6 @@ public interface HelloWorldService {
 
     void getHelloWorld(OperationRequest context, Handler<AsyncResult<OperationResponse>> resultHandler);
 
+    void getDoc(OperationRequest context, Handler<AsyncResult<OperationResponse>> resultHandler);
+
 }
