@@ -202,7 +202,7 @@ jobs:
               - -c
               - |
                 export DOMAIN=demo1.bihero.io
-                export HELLO_SERVICE_IMAGE_VERSION=$(cat metadata/version)
+                export HELLO_WORLD_SERVICE_IMAGE_VERSION=$(cat metadata/version)
                 cat sources/k8s.yaml | envsubst > k8s/helloworld_app_template.yaml
                 cat k8s/helloworld_app_template.yaml
       - put: kubernetes-demo

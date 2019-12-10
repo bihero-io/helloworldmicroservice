@@ -38,14 +38,14 @@ spec:
         io.bihero.hello.service: bihero-helloworld
     spec:
       containers:
-        - image: bihero/helloworld:${HELLO_SERVICE_IMAGE_VERSION}
-          name: bihero-world
+        - image: bihero/helloworld:${HELLO_WORLD_SERVICE_IMAGE_VERSION}
+          name: bihero-helloworld
           ports:
-            - containerPort: 8082
+            - containerPort: 8083
           imagePullPolicy: Always
           resources: {}
           volumeMounts:
-            - mountPath: /
+            - mountPath: /usr/local/
               name: hello-world-config
       restartPolicy: Always
       volumes:
