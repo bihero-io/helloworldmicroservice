@@ -57,13 +57,14 @@ jobs:
         params:
           status: Build In Progress
       - task: unit-tests
+        privileged: true
         config:
           platform: linux
           image_resource:
             type: docker-image
             source:
-              repository: ((docker-registry-uri))/bih/maven
-              tag: 3-jdk-11
+              repository: ((docker-registry-uri))/bih/dind
+              tag: latest
               username: ((docker-private-registry-user))
               password: ((docker-private-registry-password))
           inputs:
@@ -71,9 +72,10 @@ jobs:
           outputs:
             - name: tested-workspace
           run:
-            path: /bin/sh
+            path: entrypoint.sh
             args:
-              - -c
+              - bash
+              - -ceux
               - |
                 output_dir=tested-workspace
                 cp -R ./sources/* "${output_dir}/"
@@ -88,7 +90,7 @@ jobs:
                 image_resource:
                   type: docker-image
                   source:
-                    repository: ((docker-registry-uri))/bih/maven
+                    repository: ((docker-registry-uri))/bih/maven-dind
                     tag: 3-jdk-11
                     username: ((docker-private-registry-user))
                     password: ((docker-private-registry-password))
@@ -119,7 +121,7 @@ jobs:
           image_resource:
             type: docker-image
             source:
-              repository: ((docker-registry-uri))/bih/maven
+              repository: ((docker-registry-uri))/bih/maven-dind
               tag: 3-jdk-11
               username: ((docker-private-registry-user))
               password: ((docker-private-registry-password))
@@ -147,7 +149,7 @@ jobs:
           image_resource:
             type: docker-image
             source:
-              repository: ((docker-registry-uri))/bih/maven
+              repository: ((docker-registry-uri))/bih/maven-dind
               tag: 3-jdk-11
               username: ((docker-private-registry-user))
               password: ((docker-private-registry-password))
